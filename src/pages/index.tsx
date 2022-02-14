@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths } from 'next';
 
 import Link from 'next/link';
 import { format } from 'date-fns';
@@ -9,7 +9,7 @@ import Prismic from '@prismicio/client';
 import commonStyles from '../styles/common.module.scss';
 import styles from './home.module.scss';
 import Header from '../components/Header';
-import { FiClock, FiUser } from 'react-icons/fi';
+import { FiCalendar, FiUser } from 'react-icons/fi';
 import { useState } from 'react';
 interface Post {
   uid?: string;
@@ -58,7 +58,7 @@ export default function Home({ postsPagination }: HomeProps) {
                   <p>{post.data.subtitle}</p>
                   <div className={styles.postInfo}>
                     <time>
-                      <FiClock size={18} />{' '}
+                      <FiCalendar size={18} />{' '}
                       {format(
                         new Date(post.first_publication_date),
                         'dd MMM yyyy'
